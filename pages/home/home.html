@@ -14,13 +14,30 @@
     Take a look at the <code>pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
-
+ <ion-img src="http://www.transformerland.com/image/archive/tflogos/200x200/movie-the-last-knight-tlk.png"></ion-img> 
+ <img src="http://www.transformerland.com/image/archive/tflogos/200x200/movie-the-last-knight-tlk.png"> 
    <ion-list>
     <ion-item-sliding *ngFor="let info of infos">
       <ion-item detail lines="full">
         <ion-icon name="desktop" slot="start"></ion-icon>
         {{info.Linea}}
-      </ion-item>      
+        <ion-img [src]="info.Imagen"></ion-img> 
+      </ion-item>     
+       
     </ion-item-sliding>
   </ion-list>
+
+
+<ion-row>
+    <ion-col col-6 *ngFor="let info of infos">
+        <ion-item>
+            <ion-avatar item-left>              
+               zzz
+               <br> {{info.Linea}}
+            </ion-avatar>
+            
+        </ion-item>
+    </ion-col>
+</ion-row>
+
 </ion-content>
