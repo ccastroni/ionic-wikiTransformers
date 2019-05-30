@@ -14,4 +14,13 @@
     Take a look at the <code>pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
+
+   <ion-list>
+    <ion-item-sliding *ngFor="let info of infos">
+      <ion-item detail lines="full">
+        <ion-icon name="desktop" slot="start"></ion-icon>
+        {{info.Linea}}
+      </ion-item>      
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
