@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html'   
 })
 export class HomePage {
 
