@@ -18,7 +18,7 @@
  <img src="http://www.transformerland.com/image/archive/tflogos/200x200/movie-the-last-knight-tlk.png"> 
    <ion-list>
     <ion-item-sliding *ngFor="let info of infos">
-      <ion-item detail lines="full">
+      <ion-item detail lines="full"  (click)="ListaFiguras()">
         <ion-icon name="desktop" slot="start"></ion-icon>
         {{info.Linea}}
         <ion-img [src]="info.Imagen"></ion-img> 

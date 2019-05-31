@@ -4,11 +4,12 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
+import { AboutPage } from '../about/about';
 
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'   
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
@@ -21,11 +22,22 @@ export class HomePage {
       this.infos = [];
       this.infos = snapshotToArray(resp);
        console.log(this.infos)
+
+       // let storageRef = firebase.storage().ref();
+    //var imageRef = storageRef.child('Menu').storage.app;
+    //console.log(imageRef)
     });
     
   }
   
+   public ListaFiguras() {
+    this.navCtrl.push(AboutPage);
+   // alert('Download ' + item);
+  }
+
 }
+
+
 
 export const snapshotToArray = snapshot => {
     let returnArr = [];
