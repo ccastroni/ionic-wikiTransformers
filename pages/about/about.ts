@@ -20,11 +20,11 @@ export class AboutPage {
    // this.ref.orderByChild('IdLinea').equalTo( this.value);
 
      //this.ref.on('value', resp => {
-   firebase.database().ref('G1_Padre').on('value', resp => {
-      console.log(resp)
+   firebase.database().ref('G1_Padre2').child("Grupos").on('value', resp => {
+      //console.log('resp : '+resp)
       this.infos = [];
       this.infos = snapshotToArray(resp);
-       console.log("transformer filtrado"+this.infos)
+       console.log(this.infos)
 
        // let storageRef = firebase.storage().ref();
     //var imageRef = storageRef.child('Menu').storage.app;
@@ -41,6 +41,8 @@ export const snapshotToArray = snapshot => {
     let returnArr = [];
 
     snapshot.forEach(childSnapshot => {
+      console.log(childSnapshot)
+      console.log(childSnapshot.val())
       let item = childSnapshot.val();
       item.key = childSnapshot.key;
       returnArr.push(item);
