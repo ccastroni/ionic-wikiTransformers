@@ -1,11 +1,55 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+			About
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+	<ion-row>
+		<ion-col col-6 *ngFor='let row of infos'>
+			<ion-item>
+				<ion-avatar item-left>
+					<br>	{{row.TituloGrupo}}
+            </ion-avatar>            
+        </ion-item>
+        <ion-col col-6 *ngFor='let row2 of row.DetalleGrupo'>
+        <ion-item>                            
+            	{{row2.Personaje}}                       
+        </ion-item>
+    </ion-col>
+    </ion-col>
+</ion-row>
+
+
+<ion-item-group   *ngFor='let row of infos'>
+  <ion-item-divider  >
+    <ion-label>
+     	{{row.TituloGrupo}}
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item-sliding  *ngFor='let row2 of row.DetalleGrupo'>
+    <ion-item col-6>
+      <ion-label>
+        <h3>	{{row2.Personaje}}</h3>
+      </ion-label>
+    </ion-item>  
+  </ion-item-sliding>  
+</ion-item-group>
+
+
+	<ion-list>
+		<ion-item-sliding *ngFor='let row of infos'>
+      	{{row.TituloGrupo}}
+			<ion-item detail lines="full" *ngFor='let row2 of row.DetalleGrupo'>
+				<ion-icon name="desktop" slot="start"></ion-icon>
+			{{row2.Personaje}}
+				<!-- <ion-img [src]="info.Imagen"></ion-img> -->
+			</ion-item>
+
+		</ion-item-sliding>
+	</ion-list>
 </ion-content>
