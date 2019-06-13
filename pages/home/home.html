@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Wiki Transformers</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -10,25 +10,22 @@
     This starter project comes with simple tabs-based layout for apps
     that are going to primarily use a Tabbed UI.
   </p>
-  <p>
-    Take a look at the <code>pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
- <ion-img src="http://www.transformerland.com/image/archive/tflogos/200x200/movie-the-last-knight-tlk.png"></ion-img> 
- <img src="http://www.transformerland.com/image/archive/tflogos/200x200/movie-the-last-knight-tlk.png"> 
+  
+  
+
    <ion-list>
-    <ion-item-sliding *ngFor="let info of infos">
-      <ion-item detail lines="full"  (click)="ListaFiguras(info.IdMenuLinea)">
-        <ion-icon name="desktop" slot="start"></ion-icon>
-        {{info.Linea}}
+    <ion-item-sliding  *ngFor="let info of infos">
+      <ion-item lines="none" (click)="ListaFiguras(info.IdMenuLinea,info.Linea)">
+      
+        {{info.Linea}} <br>
         <ion-img [src]="info.Imagen"></ion-img> 
-      </ion-item>     
-       
+      </ion-item>            
     </ion-item-sliding>
   </ion-list>
 
 
 <ion-row>
+  
     <ion-col col-6 *ngFor="let info of infos">
         <ion-item>
             <ion-avatar item-left>              
