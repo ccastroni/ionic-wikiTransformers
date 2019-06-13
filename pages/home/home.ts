@@ -30,10 +30,11 @@ export class HomePage {
     
   }
   
-   public ListaFiguras(item) {
+   public ListaFiguras(item,linea) {
      console.log(item)
     this.navCtrl.push(AboutPage,{
-      item:item
+      item:item,
+      linea:linea
     });
    // alert('Download ' + item);
   }
