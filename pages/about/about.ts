@@ -9,13 +9,15 @@ import * as firebase from 'firebase';
 export class AboutPage {
   
   value: any;
+  tituloLinea: any;
  infos = [];
  
  ref = firebase.database().ref('G1_Padre/');
 
   constructor(public navCtrl: NavController,public navParams: NavParams) {
     this.value = navParams.get('item');
-    console.log(this.value);
+    this.tituloLinea = navParams.get('linea');
+    console.log(this.tituloLinea);
 
    // this.ref.orderByChild('IdLinea').equalTo( this.value);
 
