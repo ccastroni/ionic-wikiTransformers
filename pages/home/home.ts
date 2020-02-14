@@ -20,31 +20,50 @@ export class HomePage {
       // console.log(resp)
       this.infos = [];
       this.infos = snapshotToArray(resp);
-      // console.log(this.infos)
+      console.log(
+        firebase.storage().refFromURL(
+          firebase
+            .storage()
+            .ref("Menu/animated.png")
+            .toString()
+        )
+      );
+      console.log(
+        firebase
+          .storage()
+          .ref("Menu/animated.png")
+          .toString()
+      );
 
-      // Points to the root reference
-      var storageRef = firebase.storage().ref();
+      // Create a reference to the file we want to download
+      var starsRef = firebase.storage().ref().child("Menu/animated.png");
 
-      // Points to 'images'
-      var imagesRef = storageRef.child("Menu");
-
-      // Points to 'images/space.jpg'
-      // Note that you can use variables to create child values
-      var fileName = "animated.png";
-      var spaceRef = imagesRef.child(fileName);
-
-      // File path is 'images/space.jpg'
-      var path = spaceRef.fullPath;
-
-      // File name is 'space.jpg'
-      var name = spaceRef.name;
-
-      // Points to 'images'
-      var imagesRef = spaceRef.parent;
-
-      this.urlimagen = path; //spaceRef.fullPath;
-      console.log(spaceRef);
-
+      // Get the download URL
+      starsRef
+        .getDownloadURL()
+        .then(function(url) {
+          console.log(url)
+          this.urlimagen = url;
+        })
+        .catch(function(error) {
+          // A full list of error codes is available at
+          // https://firebase.google.com/docs/storage/web/handle-errors
+          switch (error.code) {
+            case "storage/object-not-found":
+              console.log("File doesn't exist");
+              break;
+            case "storage/unauthorized":
+              console.log("User doesn't have permission to access the object");
+              break;
+            case "storage/canceled":
+              console.log("User canceled the upload");
+              break;
+            case "storage/unknown":
+              console.log("Unknown error occurred, inspect the server response");
+              break;
+          }
+        });
+               
     });
   }
 
